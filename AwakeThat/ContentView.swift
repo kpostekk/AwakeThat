@@ -7,6 +7,7 @@
 
 import Awake
 import CoreData
+import Loaf
 import SwiftUI
 
 struct ContentView: View {
@@ -80,6 +81,7 @@ struct ContentView: View {
     private func awakeDevice(_ device: DeviceWake) {
         let awDevice = Awake.Device(MAC: device.macAddr!, BroadcastAddr: device.brAddr!, Port: UInt16(truncating: device.port!))
         _ = Awake.target(device: awDevice)
+        Loaf("Magic packet sent!", state: .success, sender: UIApplication.shared.windows.filter {$0.isKeyWindow}.first!.rootViewController!).show()
     }
 }
 
@@ -112,8 +114,14 @@ struct FormSheet: View {
             Form {
                 Section(header: Text("Device Properties")) {
                     TextField("MAC address", text: $macAddr)
-                    TextField("Broadcasr address", text: $brAddr)
-                        .keyboardType(.numberPad)
+                        .onChange(of: macAddr, perform: { value in
+                            macAddr = value.uppercased()
+                        })
+                    TextField("Broadcast address", text: $brAddr)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: brAddr, perform: { value in
+                            brAddr = value.replacingOccurrences(of: ",", with: ".")
+                        })
                     TextField("Alias", text: $alias)
                     Picker("Icon", selection: $icon) {
                         Label("PC", systemImage: "pc").tag(0)
@@ -126,6 +134,7 @@ struct FormSheet: View {
                 Section {
                     Button(action: addDevice) {
                         Label("Save", systemImage: "square.and.arrow.down.on.square.fill")
+                            .disabled(isInvalid)
                     }
                     if (editDevice != nil) {
                         Button(action: delDevice) {
@@ -147,6 +156,11 @@ struct FormSheet: View {
                 alias = edDev.alias ?? ""
             }
         }
+        .onDisappear() {
+            if editDevice != nil {
+                resetFields()
+            }
+        }
     }
 
     private func addDevice() {
@@ -165,6 +179,29 @@ struct FormSheet: View {
         try? viewContext.save()
         editDevice = nil
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    private var isInvalid: Bool {
+        var isOk = true
+        
+        isOk = macAddr.split(separator: ":").map { sub -> Substring in
+            isOk = sub.count == 2 && isOk
+            return sub
+        }.count == 6 && isOk
+        
+        isOk = brAddr.split(separator: ".").map { sub -> Substring in
+            isOk = sub.count < 4 && sub.count > 0 && isOk
+            return sub
+        }.count == 4 && isOk
+        
+        return !isOk
+    }
+    
+    private func resetFields() {
+        editDevice = nil
+        macAddr = ""
+        brAddr = ""
+        alias = ""
     }
 }
 

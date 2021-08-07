@@ -14,6 +14,7 @@
 		61294C5426BEAA06000EE827 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5326BEAA06000EE827 /* Persistence.swift */; };
 		61294C5726BEAA06000EE827 /* AwakeThat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5526BEAA06000EE827 /* AwakeThat.xcdatamodeld */; };
 		614BD76126BEBFA300515FC8 /* Awake in Frameworks */ = {isa = PBXBuildFile; productRef = 614BD76026BEBFA300515FC8 /* Awake */; };
+		6161320F26BEDAC40031C794 /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = 6161320E26BEDAC40031C794 /* Loaf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		61294C5326BEAA06000EE827 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		61294C5626BEAA06000EE827 /* AwakeThat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AwakeThat.xcdatamodel; sourceTree = "<group>"; };
 		61294C5826BEAA06000EE827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6161320C26BED4EE0031C794 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		6161321026BEE2E60031C794 /* AwakeThat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AwakeThat.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6161320F26BEDAC40031C794 /* Loaf in Frameworks */,
 				614BD76126BEBFA300515FC8 /* Awake in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +46,7 @@
 		61294C3E26BEAA05000EE827 = {
 			isa = PBXGroup;
 			children = (
+				6161320C26BED4EE0031C794 /* README.md */,
 				61294C4926BEAA05000EE827 /* AwakeThat */,
 				61294C4826BEAA05000EE827 /* Products */,
 			);
@@ -58,6 +63,7 @@
 		61294C4926BEAA05000EE827 /* AwakeThat */ = {
 			isa = PBXGroup;
 			children = (
+				6161321026BEE2E60031C794 /* AwakeThat.entitlements */,
 				61294C4A26BEAA05000EE827 /* AwakeThatApp.swift */,
 				61294C4C26BEAA05000EE827 /* ContentView.swift */,
 				61294C4E26BEAA06000EE827 /* Assets.xcassets */,
@@ -95,6 +101,7 @@
 			name = AwakeThat;
 			packageProductDependencies = (
 				614BD76026BEBFA300515FC8 /* Awake */,
+				6161320E26BEDAC40031C794 /* Loaf */,
 			);
 			productName = AwakeThat;
 			productReference = 61294C4726BEAA05000EE827 /* AwakeThat.app */;
@@ -125,6 +132,7 @@
 			mainGroup = 61294C3E26BEAA05000EE827;
 			packageReferences = (
 				614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */,
+				6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */,
 			);
 			productRefGroup = 61294C4826BEAA05000EE827 /* Products */;
 			projectDirPath = "";
@@ -283,6 +291,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AwakeThat/AwakeThat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AwakeThat/Preview Content\"";
 				DEVELOPMENT_TEAM = 3P384S9N87;
@@ -295,8 +305,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.kpostek.AwakeThat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -305,6 +316,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AwakeThat/AwakeThat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AwakeThat/Preview Content\"";
 				DEVELOPMENT_TEAM = 3P384S9N87;
@@ -317,8 +330,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.kpostek.AwakeThat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -354,6 +368,14 @@
 				kind = branch;
 			};
 		};
+		6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/schmidyy/Loaf";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -361,6 +383,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */;
 			productName = Awake;
+		};
+		6161320E26BEDAC40031C794 /* Loaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */;
+			productName = Loaf;
 		};
 /* End XCSwiftPackageProductDependency section */
 
