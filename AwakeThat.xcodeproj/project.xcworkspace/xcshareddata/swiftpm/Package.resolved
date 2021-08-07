@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Awake",
+        "repositoryURL": "https://github.com/kpostekk/Awake",
+        "state": {
+          "branch": "master",
+          "revision": "4e3366f6b37b07e77c2d37e348d3eb8e6657caa8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

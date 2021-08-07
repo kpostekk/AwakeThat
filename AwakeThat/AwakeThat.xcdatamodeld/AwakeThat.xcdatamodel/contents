@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DeviceWake" representedClassName="DeviceWake" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" optional="YES" attributeType="String"/>
+        <attribute name="brAddr" attributeType="String" defaultValueString="255.255.255.255"/>
+        <attribute name="macAddr" attributeType="String" defaultValueString="90:1b:0e:15:a7:19"/>
+        <attribute name="port" attributeType="Decimal" defaultValueString="9"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="DeviceWake" positionX="-63" positionY="-9" width="128" height="89"/>
     </elements>
 </model>

@@ -13,10 +13,21 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
         }
+        
+        let newDevice = DeviceWake(context: viewContext)
+        newDevice.alias = "Home server"
+        newDevice.brAddr = "192.168.1.91"
+        newDevice.macAddr = "90:1b:0e:15:a7:19"
+        
+        let anotherNewDevice = DeviceWake(context: viewContext)
+        anotherNewDevice.brAddr = "192.168.1.96"
+        anotherNewDevice.macAddr = "18:c0:4d:a2:ba:8a"
+        
         do {
             try viewContext.save()
         } catch {

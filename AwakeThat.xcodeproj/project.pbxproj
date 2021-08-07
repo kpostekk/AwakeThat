@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		61294C5226BEAA06000EE827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61294C5126BEAA06000EE827 /* Preview Assets.xcassets */; };
 		61294C5426BEAA06000EE827 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5326BEAA06000EE827 /* Persistence.swift */; };
 		61294C5726BEAA06000EE827 /* AwakeThat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5526BEAA06000EE827 /* AwakeThat.xcdatamodeld */; };
+		614BD76126BEBFA300515FC8 /* Awake in Frameworks */ = {isa = PBXBuildFile; productRef = 614BD76026BEBFA300515FC8 /* Awake */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614BD76126BEBFA300515FC8 /* Awake in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = AwakeThat;
+			packageProductDependencies = (
+				614BD76026BEBFA300515FC8 /* Awake */,
+			);
 			productName = AwakeThat;
 			productReference = 61294C4726BEAA05000EE827 /* AwakeThat.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +123,9 @@
 				Base,
 			);
 			mainGroup = 61294C3E26BEAA05000EE827;
+			packageReferences = (
+				614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */,
+			);
 			productRefGroup = 61294C4826BEAA05000EE827 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,6 +344,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kpostekk/Awake";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		614BD76026BEBFA300515FC8 /* Awake */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */;
+			productName = Awake;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		61294C5526BEAA06000EE827 /* AwakeThat.xcdatamodeld */ = {
