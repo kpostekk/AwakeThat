@@ -32,6 +32,20 @@ struct DeviceRow: View {
     }
 }
 
+struct DeviceTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 26, weight: .medium, design: .rounded))
+    }
+}
+
+struct DevicePropsText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 16, weight: .regular, design: .monospaced))
+    }
+}
+
 struct DeviceRow_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
