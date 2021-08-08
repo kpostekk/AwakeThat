@@ -13,8 +13,8 @@
 		61294C5226BEAA06000EE827 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61294C5126BEAA06000EE827 /* Preview Assets.xcassets */; };
 		61294C5426BEAA06000EE827 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5326BEAA06000EE827 /* Persistence.swift */; };
 		61294C5726BEAA06000EE827 /* AwakeThat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61294C5526BEAA06000EE827 /* AwakeThat.xcdatamodeld */; };
+		6139102326BFB97F004D1A15 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 6139102226BFB97F004D1A15 /* AlertToast */; };
 		614BD76126BEBFA300515FC8 /* Awake in Frameworks */ = {isa = PBXBuildFile; productRef = 614BD76026BEBFA300515FC8 /* Awake */; };
-		6161320F26BEDAC40031C794 /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = 6161320E26BEDAC40031C794 /* Loaf */; };
 		6161321226BEE95C0031C794 /* ConfigSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161321126BEE95C0031C794 /* ConfigSheet.swift */; };
 		6161321426BEEA260031C794 /* DeviceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161321326BEEA250031C794 /* DeviceDetailsView.swift */; };
 		6161321626BEF4CF0031C794 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161321526BEF4CF0031C794 /* Icons.swift */; };
@@ -45,8 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6161320F26BEDAC40031C794 /* Loaf in Frameworks */,
 				614BD76126BEBFA300515FC8 /* Awake in Frameworks */,
+				6139102326BFB97F004D1A15 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			name = AwakeThat;
 			packageProductDependencies = (
 				614BD76026BEBFA300515FC8 /* Awake */,
-				6161320E26BEDAC40031C794 /* Loaf */,
+				6139102226BFB97F004D1A15 /* AlertToast */,
 			);
 			productName = AwakeThat;
 			productReference = 61294C4726BEAA05000EE827 /* AwakeThat.app */;
@@ -147,7 +147,7 @@
 			mainGroup = 61294C3E26BEAA05000EE827;
 			packageReferences = (
 				614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */,
-				6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */,
+				6139102126BFB97F004D1A15 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 61294C4826BEAA05000EE827 /* Products */;
 			projectDirPath = "";
@@ -319,6 +319,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwakeThat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +345,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AwakeThat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +382,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6139102126BFB97F004D1A15 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kpostekk/Awake";
@@ -388,26 +398,18 @@
 				kind = branch;
 			};
 		};
-		6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/schmidyy/Loaf";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6139102226BFB97F004D1A15 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6139102126BFB97F004D1A15 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
 		614BD76026BEBFA300515FC8 /* Awake */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 614BD75F26BEBFA300515FC8 /* XCRemoteSwiftPackageReference "Awake" */;
 			productName = Awake;
-		};
-		6161320E26BEDAC40031C794 /* Loaf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6161320D26BEDAC40031C794 /* XCRemoteSwiftPackageReference "Loaf" */;
-			productName = Loaf;
 		};
 /* End XCSwiftPackageProductDependency section */
 
