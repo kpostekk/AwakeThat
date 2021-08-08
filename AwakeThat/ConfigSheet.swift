@@ -68,6 +68,7 @@ struct FormSheet: View {
                 }
             }
             .navigationTitle(editDevice != nil ? "Edit device" : "Add device")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Text("Hide")
             })
