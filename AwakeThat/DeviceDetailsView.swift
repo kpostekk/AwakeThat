@@ -5,12 +5,15 @@
 //  Created by Krystian Postek on 07/08/2021.
 //
 
+import AlertToast
 import SwiftUI
 
 struct DeviceDetailsView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @ObservedObject var device: DeviceWake
+    @State private var showingToast = false
+    @State private var lockButton = false
 
     var body: some View {
         Form {
@@ -22,12 +25,21 @@ struct DeviceDetailsView: View {
             }
 
             Section(header: Label("Actions", systemImage: "bolt")) {
-                Button(action: { device.awakeDevice() }, label: {
+                Button(action: {
+                    showingToast.toggle()
+                    device.awakeDevice()
+                    lockButton = true
+                }, label: {
                     Label("Send magic packet", systemImage: "power")
-                })
+                }).disabled(lockButton)
             }
-        }
-        .navigationTitle(device.alias != nil ? device.alias! : device.macAddr!)
+        }.navigationTitle(device.alias != nil ? device.alias! : device.macAddr!)
+            .navigationBarTitleDisplayMode(.inline)
+            .toast(isPresenting: $showingToast, duration: 5, alert: {
+                AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
+            }, completion: {
+                lockButton = false
+            })
     }
 }
 
