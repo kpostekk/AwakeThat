@@ -17,11 +17,12 @@ struct PersistenceController {
         let newDevice = DeviceWake(context: viewContext)
         newDevice.alias = "Home server"
         newDevice.brAddr = "192.168.1.91"
-        newDevice.macAddr = "90:1b:0e:15:a7:19"
+        newDevice.macAddr = "90:1b:0e:15:a7:19".uppercased()
         
         let anotherNewDevice = DeviceWake(context: viewContext)
         anotherNewDevice.brAddr = "192.168.1.96"
-        anotherNewDevice.macAddr = "18:c0:4d:a2:ba:8a"
+        anotherNewDevice.macAddr = "18:c0:4d:a2:ba:8a".uppercased()
+        anotherNewDevice.icon = "airport.extreme.tower"
         
         do {
             try viewContext.save()

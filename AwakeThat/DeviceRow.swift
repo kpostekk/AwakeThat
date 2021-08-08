@@ -53,6 +53,7 @@ struct DeviceRow_Previews: PreviewProvider {
                 DeviceRow(device: testDevice()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             }
             .listStyle(InsetGroupedListStyle())
+            .navigationTitle("TestView")
         }
     }
     

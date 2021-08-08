@@ -43,10 +43,11 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Devices")
-            .navigationBarItems(trailing: Button(action: showSheet) {
+            .navigationBarItems(leading: Button(action: {}, label: {
+                Label("Settings", systemImage: "gear")
+            }), trailing: Button(action: showSheet, label: {
                 Label("Add", systemImage: "plus")
-            }
-            )
+            }))
         }
         .sheet(isPresented: $showingSheet) {
             FormSheet(editDevice: $editingDevice)
@@ -55,7 +56,7 @@ struct ContentView: View {
             AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
         }
         .toast(isPresenting: $firstRun) {
-            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Hello! 👋", subTitle: "Feel free to add a new device!")
+            AlertToast(displayMode: .banner(.pop), type: .regular, title: "Hello! 👋", subTitle: "Feel free to add a new device!")
         }
     }
 
