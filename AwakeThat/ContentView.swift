@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var showingToast = false
 
     @State private var editingDevice: DeviceWake?
+    @AppStorage("fisrtRun") private var firstRun = true
 
     @FetchRequest(sortDescriptors: [
         NSSortDescriptor(keyPath: \DeviceWake.alias, ascending: true)
@@ -52,6 +53,9 @@ struct ContentView: View {
         }
         .toast(isPresenting: $showingToast) {
             AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
+        }
+        .toast(isPresenting: $firstRun) {
+            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Hello! 👋", subTitle: "Feel free to add a new device!")
         }
     }
 
