@@ -21,6 +21,7 @@
 		6161321826BF015A0031C794 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161321726BF015A0031C794 /* DeviceRow.swift */; };
 		6161321A26BF10D30031C794 /* WakingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161321926BF10D30031C794 /* WakingUp.swift */; };
 		61AEBECB26BFE18C006C620B /* PropertyPingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AEBECA26BFE18C006C620B /* PropertyPingView.swift */; };
+		61E818EA26BFEC280084A886 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E818E926BFEC280084A886 /* SettingsSheet.swift */; };
 		61F97EAF26BFCBF90093C868 /* SwiftyPing in Frameworks */ = {isa = PBXBuildFile; productRef = 61F97EAE26BFCBF90093C868 /* SwiftyPing */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		6161321726BF015A0031C794 /* DeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRow.swift; sourceTree = "<group>"; };
 		6161321926BF10D30031C794 /* WakingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakingUp.swift; sourceTree = "<group>"; };
 		61AEBECA26BFE18C006C620B /* PropertyPingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyPingView.swift; sourceTree = "<group>"; };
+		61E818E926BFEC280084A886 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				61294C4A26BEAA05000EE827 /* AwakeThatApp.swift */,
 				61294C4C26BEAA05000EE827 /* ContentView.swift */,
 				6161321126BEE95C0031C794 /* ConfigSheet.swift */,
+				61E818E926BFEC280084A886 /* SettingsSheet.swift */,
 				6161321326BEEA250031C794 /* DeviceDetailsView.swift */,
 				61AEBECA26BFE18C006C620B /* PropertyPingView.swift */,
 				6161321726BF015A0031C794 /* DeviceRow.swift */,
@@ -188,6 +191,7 @@
 				61AEBECB26BFE18C006C620B /* PropertyPingView.swift in Sources */,
 				61294C5426BEAA06000EE827 /* Persistence.swift in Sources */,
 				6161321A26BF10D30031C794 /* WakingUp.swift in Sources */,
+				61E818EA26BFEC280084A886 /* SettingsSheet.swift in Sources */,
 				6161321226BEE95C0031C794 /* ConfigSheet.swift in Sources */,
 				61294C4D26BEAA05000EE827 /* ContentView.swift in Sources */,
 				61294C4B26BEAA05000EE827 /* AwakeThatApp.swift in Sources */,

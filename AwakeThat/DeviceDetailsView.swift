@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DeviceDetailsView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    
+    @AppStorage("ping.enable") private var pingEnable: Bool = true
 
     @ObservedObject var device: DeviceWake
     @State private var showingToast = false
@@ -22,7 +24,9 @@ struct DeviceDetailsView: View {
                     PropertyView(key: "MAC address", val: .constant(device.macAddr!))
                 }
                 PropertyView(key: "Broadcast address", val: .constant(device.brAddr!))
-                PropertyPingView(targetAddr: device.brAddr!)
+                if pingEnable {
+                    PropertyPingView(targetAddr: device.brAddr!)
+                }
             }
 
             Section(header: Label("Actions", systemImage: "bolt")) {

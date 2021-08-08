@@ -14,6 +14,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var showingSheet = false
+    @State private var showingSettings = false
     @State private var showingToast = false
 
     @State private var editingDevice: DeviceWake?
@@ -43,7 +44,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Devices")
-            .navigationBarItems(leading: Button(action: {}, label: {
+            .navigationBarItems(leading: Button(action: { showingSettings.toggle() }, label: {
                 Label("Settings", systemImage: "gear")
             }), trailing: Button(action: showSheet, label: {
                 Label("Add", systemImage: "plus")
@@ -51,6 +52,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingSheet) {
             FormSheet(editDevice: $editingDevice)
+        }
+        .sheet(isPresented: $showingSettings) {
+            SettingsSheet()
         }
         .toast(isPresenting: $showingToast) {
             AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
