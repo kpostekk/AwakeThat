@@ -15,19 +15,11 @@ public struct SelectableIcon {
         
         let index = self.iconsNames.firstIndex(of: imgName)!
         return [
-            "PC", "iMac", "Mac Pro trash bin", "Mac Pro cheese grater", "Server", "Tower", "Laptop"
+            "PC", "iMac", "Mac Pro trash bin", "Mac Pro cheese grater", "Cheese grater on a rack", "Server", "Tower", "Laptop", "Printer"
         ][index]
     }
     
     static let iconsNames = [
-        "pc", "desktopcomputer", "macpro.gen2", "macpro.gen3", "xserve", "airport.extreme.tower", "laptopcomputer"
+        "pc", "desktopcomputer", "macpro.gen2", "macpro.gen3", "macpro.gen3.server", "xserve", "airport.extreme.tower", "laptopcomputer", "printer"
     ]
 }
-
-/*
- Label("PC", systemImage: "pc").tag(0)
- Label("iMac", systemImage: "desktopcomputer").tag(1)
- Label("Mac Pro trashbin", systemImage: "macpro.gen2").tag(2)
- Label("Mac Pro cheese", systemImage: "macpro.gen3").tag(3)
- Label("Server", systemImage: "xserve").tag(4)
-*/
