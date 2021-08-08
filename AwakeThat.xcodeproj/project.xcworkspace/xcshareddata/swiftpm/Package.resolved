@@ -18,6 +18,15 @@
           "revision": "4e3366f6b37b07e77c2d37e348d3eb8e6657caa8",
           "version": null
         }
+      },
+      {
+        "package": "SwiftyPing",
+        "repositoryURL": "https://github.com/samiyr/SwiftyPing",
+        "state": {
+          "branch": null,
+          "revision": "05591bc0047e41e0e1d98135c6bc457192a72d39",
+          "version": "1.2.1"
+        }
       }
     ]
   },

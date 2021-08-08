@@ -19,9 +19,10 @@ struct DeviceDetailsView: View {
         Form {
             Section(header: Text("Device Properties")) {
                 if device.alias != nil {
-                    PropertyView(key: "MAC address", val: device.macAddr!)
+                    PropertyView(key: "MAC address", val: .constant(device.macAddr!))
                 }
-                PropertyView(key: "Broadcast address", val: device.brAddr!)
+                PropertyView(key: "Broadcast address", val: .constant(device.brAddr!))
+                PropertyPingView(targetAddr: device.brAddr!)
             }
 
             Section(header: Label("Actions", systemImage: "bolt")) {
@@ -45,7 +46,7 @@ struct DeviceDetailsView: View {
 
 struct PropertyView: View {
     @State var key: String
-    @State var val: String
+    @Binding var val: String
 
     var body: some View {
         HStack {
