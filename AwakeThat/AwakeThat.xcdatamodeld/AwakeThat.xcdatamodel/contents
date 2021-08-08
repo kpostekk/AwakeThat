@@ -3,14 +3,11 @@
     <entity name="DeviceWake" representedClassName="DeviceWake" syncable="YES" codeGenerationType="class">
         <attribute name="alias" optional="YES" attributeType="String"/>
         <attribute name="brAddr" attributeType="String" defaultValueString="255.255.255.255"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="macAddr" attributeType="String" defaultValueString="90:1b:0e:15:a7:19"/>
-        <attribute name="port" attributeType="Decimal" defaultValueString="9"/>
-    </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="port" attributeType="Integer 16" defaultValueString="9" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="DeviceWake" positionX="-63" positionY="-9" width="128" height="89"/>
+        <element name="DeviceWake" positionX="-63" positionY="-9" width="128" height="104"/>
     </elements>
 </model>

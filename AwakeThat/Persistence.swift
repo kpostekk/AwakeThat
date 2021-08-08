@@ -14,11 +14,6 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
-        
         let newDevice = DeviceWake(context: viewContext)
         newDevice.alias = "Home server"
         newDevice.brAddr = "192.168.1.91"
