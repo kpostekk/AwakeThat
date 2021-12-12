@@ -16,9 +16,35 @@ struct DeviceDetailsView: View {
     @ObservedObject var device: DeviceWake
     @State private var showingToast = false
     @State private var lockButton = false
-
+    @State private var launching = false {
+        didSet {
+            if launching { // Wait 3 seconds and return to previous state (false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    launching.toggle()
+                }
+            }
+        }
+    }
+    
     var body: some View {
         Form {
+            Section() {
+                Button(action: awakeRequest) {
+                    HStack {
+                        Spacer()
+                        Image(systemName: "bolt")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.all, 32)
+                            .foregroundColor(.green)
+                            .rotationEffect(.degrees(launching ? 390 : 0))
+                            .animation(.easeInOut(duration: 0.4), value: launching)
+                        Text(launching ? "Launching..." : "Launch")
+                            .animation(.easeInOut(duration: 0.4), value: launching)
+                        Spacer()
+                    }
+                }.frame(height: 120).disabled(launching)
+            }
             Section(header: Text("Device Properties")) {
                 if device.alias != nil {
                     PropertyView(key: "MAC address", val: .constant(device.macAddr!))
@@ -28,23 +54,13 @@ struct DeviceDetailsView: View {
                     PropertyPingView(targetAddr: device.brAddr!)
                 }
             }
-
-            Section(header: Label("Actions", systemImage: "bolt")) {
-                Button(action: {
-                    showingToast.toggle()
-                    device.awakeDevice()
-                    lockButton = true
-                }, label: {
-                    Label("Send magic packet", systemImage: "power")
-                }).disabled(lockButton)
-            }
         }.navigationTitle(device.alias != nil ? device.alias! : device.macAddr!)
             .navigationBarTitleDisplayMode(.inline)
-            .toast(isPresenting: $showingToast, duration: 5, alert: {
-                AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
-            }, completion: {
-                lockButton = false
-            })
+    }
+    
+    private func awakeRequest() {
+        launching.toggle()
+        device.awakeDevice()
     }
 }
 
