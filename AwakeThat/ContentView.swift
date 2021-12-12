@@ -18,7 +18,7 @@ struct ContentView: View {
     @State private var showingToast = false
 
     @State private var editingDevice: DeviceWake?
-    @AppStorage("fisrtRun") private var firstRun = true
+    @AppStorage("fisrtRun") var firstRun = true
 
     @FetchRequest(sortDescriptors: [
         NSSortDescriptor(keyPath: \DeviceWake.alias, ascending: true)
@@ -31,12 +31,6 @@ struct ContentView: View {
                 NavigationLink(destination: DeviceDetailsView(device: device)) {
                     DeviceRow(device: device)
                         .contextMenu(ContextMenu(menuItems: {
-                            Button(action: {
-                                showingToast.toggle()
-                                device.awakeDevice()
-                            }) {
-                                Label("Send magic packet", systemImage: "power")
-                            }
                             Button(action: { showEditSheet(device) }) {
                                 Label("Edit", systemImage: "pencil")
                             }
@@ -44,20 +38,24 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Devices")
-            .navigationBarItems(leading: Button(action: { showingSettings.toggle() }, label: {
-                Label("Settings", systemImage: "gear")
-            }), trailing: Button(action: showSheet, label: {
-                Label("Add", systemImage: "plus")
-            }))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { showingSettings.toggle() }, label: {
+                        Label("Settings", systemImage: "gear")
+                    })
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: showSheet, label: {
+                        Label("Add", systemImage: "plus")
+                    })
+                }
+            }
         }
         .sheet(isPresented: $showingSheet) {
             FormSheet(editDevice: $editingDevice)
         }
         .sheet(isPresented: $showingSettings) {
             SettingsSheet()
-        }
-        .toast(isPresenting: $showingToast) {
-            AlertToast(displayMode: .alert, type: .complete(.green), title: "Sent!")
         }
         .toast(isPresenting: $firstRun) {
             AlertToast(displayMode: .banner(.pop), type: .regular, title: "Hello! 👋", subTitle: "Feel free to add a new device!")
@@ -83,6 +81,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView(firstRun: false)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
