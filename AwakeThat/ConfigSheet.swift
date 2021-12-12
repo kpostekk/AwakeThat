@@ -73,7 +73,7 @@ struct FormSheet: View {
                 Text("Hide")
             })
         }
-        .onAppear() {
+        .task {
             if let edDev = editDevice {
                 macAddr = edDev.macAddr!
                 brAddr = edDev.brAddr!
