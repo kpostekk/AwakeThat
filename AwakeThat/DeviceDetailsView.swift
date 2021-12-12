@@ -88,9 +88,10 @@ struct DeviceDetailsView_Previews: PreviewProvider {
     static func testDevice() -> DeviceWake {
         let context = PersistenceController.preview.container.viewContext
         let td = DeviceWake(context: context)
-        td.alias = "AliasAlias"
+        td.alias = "Workstation"
         td.brAddr = "192.168.1.96"
         td.macAddr = "90:1B:0E:15:A7:19"
+        td.icon = SelectableIcon.iconsNames[2]
         try? context.save()
         return td
     }
