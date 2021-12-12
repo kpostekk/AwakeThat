@@ -13,7 +13,7 @@ struct PropertyPingView: View {
     @State var duration: String = "Offline"
     @State var pinger: SwiftyPing?
     
-    @AppStorage("ping.interval") private var pingInterval: String = "0.5"
+    @AppStorage("ping.interval") private var pingInterval: String = "1"
     @AppStorage("ping.timeout") private var pingTimeout: String = "4"
     
     var body: some View {
